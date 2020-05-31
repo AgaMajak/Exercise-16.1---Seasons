@@ -7,6 +7,7 @@ public class SeasonsUserReader {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Informacje o jakiej porze roku chcesz wyświetlić? Wpisz: wiosna/lato/jesień/zima");
         String userSeason = scanner.nextLine();
+        scanner.close();
 
         for (Seasons season : seasons) {
             if (userSeason.equalsIgnoreCase(season.getPolishTranslation())) {
