@@ -8,14 +8,11 @@ public class SeasonsUserReader {
         System.out.println("Informacje o jakiej porze roku chcesz wyświetlić? Wpisz: wiosna/lato/jesień/zima");
         String userSeason = scanner.nextLine();
         scanner.close();
-
-        for (Seasons season : seasons) {
-            if (userSeason.equalsIgnoreCase(season.getPolishTranslation())) {
-                System.out.println(season);
-                return;
-            }
+        Seasons season = Seasons.fromPolishTranslation(seasons, userSeason);
+        if (season == null) {
+            System.out.println("Błędnie podana nazwa pory roku, spróbuj ponownie.");
+        } else {
+            System.out.println(season);
         }
-
-        System.out.println("Błędnie podana nazwa pory roku, spróbuj ponownie.");
     }
 }
